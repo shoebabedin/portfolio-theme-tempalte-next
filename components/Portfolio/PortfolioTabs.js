@@ -12,7 +12,7 @@ const PortfolioTabs = (props) => {
 
   return (
     <>
-      {data.length > 0 && data.map((item) => (
+      {data.length > 0 && data?.map((item) => (
         <div key={item.id} className="col-lg-3 col-md-4 mb-3">
           <div className="img">
             <Image

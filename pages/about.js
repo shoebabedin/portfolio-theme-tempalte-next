@@ -3,7 +3,7 @@ import React from "react";
 import HeadAbout from "../components/about/HeadAbout";
 import Hero from "../components/about/Hero";
 import Experience from "../components/experience/Experience";
-// import RecentProejct from "../components/recent-project/RecentProejct";
+import RecentProejct from "../components/recent-project/RecentProejct";
 import Services from "../components/services/Services";
 import Testimnial from "../components/Testimonial/Testimnial";
 
@@ -25,7 +25,7 @@ const about = () => {
       <Experience />
 
       {/* Recent Proejct */}
-      {/* <RecentProejct /> */}
+      <RecentProejct />
 
       {/* services */}
       <Services />

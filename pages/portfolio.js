@@ -1,25 +1,29 @@
+import axios from 'axios';
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import HeadAbout from "../components/about/HeadAbout";
 import PortfolioModal from "../components/Portfolio/PortfolioModal";
 import PortfolioTabs from "../components/Portfolio/PortfolioTabs";
 
+
 const Portfolio = () => {
   const [show, setShow] = useState(false);
-  const [portfolioData, setPortfolioData] = useState({});
-  const [filterData, setFilterData] = useState({});
-  const [data, setData] = useState(portfolioData);
+  const [portfolioData, setPortfolioData] = useState([]);
+  // const [data, setData] = useState(portfolioData);
+  const [filterData, setFilterData] = useState(portfolioData);
 
-  
+
   useEffect(() => {
-    const fetchPortfolio = async () => {
-      const res = await fetch("/assets/data/portfolio.json");
-      const data = await res.json();
-      setPortfolioData(data)
-    }
-    fetchPortfolio();
-  },[])
-  
+    axios('/assets/data/portfolio.json')
+    .then(response => {
+    console.log(response.data)
+    setPortfolioData(response.data);
+    setFilterData(response.data);
+    })
+    .catch(error => {
+    console.log('Error getting fake data: ' + error);
+    })
+    }, []);
 
   useEffect(() => {}, [filterData]);
 
@@ -32,7 +36,6 @@ const Portfolio = () => {
       ? setFilterData(portfolioData)
       : setFilterData(portfolioData.filter((item) => item.category === title));
   };
-console.log(data);
   return (
     <>
       <Head>
@@ -44,6 +47,7 @@ console.log(data);
 
       {/* Head title */}
       <HeadAbout title={"Portfolio Work"} breadcum={"Portfolio"} />
+      
 
       <div className="gallery-area pt-100 pb-70 portfolio">
         <div className="container">
@@ -59,6 +63,7 @@ console.log(data);
                 key={i}
                 className="filter"
                 onClick={() => handleFilter(item)}
+                defaultChecked={() => handleFilter("All Projects")}
               >
                 {item}
               </button>
@@ -69,7 +74,7 @@ console.log(data);
               <PortfolioTabs
                 setShow={setShow}
                 show={show}
-                data={portfolioData}
+                data={filterData}
                 getData={getData}
               />
             </div>

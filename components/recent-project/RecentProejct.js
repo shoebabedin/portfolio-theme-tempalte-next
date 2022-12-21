@@ -1,80 +1,8 @@
 import Image from "next/image";
 import React from "react";
-import { v4 as uuidv4 } from "uuid";
-import Carroussel from "./Carroussel";
+import { Carousel } from "react-configurable-carousel";
 
 const RecentProejct = () => {
-  let cards = [
-    {
-      key: uuidv4(),
-      content: (
-        <Image
-          src="https://shoebabedin.github.io/portfolio-theme-tempalte/assets/images/recent-project/item1.webp"
-          alt="1"
-          width={500}
-          height={300}
-        />
-      )
-    },
-    {
-      key: uuidv4(),
-      content: (
-        <Image
-          src="https://shoebabedin.github.io/portfolio-theme-tempalte/assets/images/recent-project/item2.webp"
-          alt="2"
-          width={500}
-          height={300}
-        />
-      )
-    },
-    {
-      key: uuidv4(),
-      content: (
-        <Image
-          src="https://shoebabedin.github.io/portfolio-theme-tempalte/assets/images/recent-project/item3.webp"
-          alt="3"
-          width={500}
-          height={300}
-        />
-      )
-    },
-    {
-      key: uuidv4(),
-      content: (
-        <Image
-          src="https://shoebabedin.github.io/portfolio-theme-tempalte/assets/images/recent-project/item1.webp"
-          alt="1"
-          width={500}
-          height={300}
-        />
-      )
-    },
-    {
-      key: uuidv4(),
-      content: (
-        <Image
-          src="https://shoebabedin.github.io/portfolio-theme-tempalte/assets/images/recent-project/item2.webp"
-          alt="1"
-          width={500}
-          height={300}
-        />
-      )
-    },
-    {
-      key: uuidv4(),
-      content: (
-        <Image
-          src="https://shoebabedin.github.io/portfolio-theme-tempalte/assets/images/recent-project/item3.webp"
-          alt="1"
-          width={500}
-          height={300}
-        />
-      )
-    }
-  ];
-
-
-
   return (
     <>
       <section className="recent_project">
@@ -85,13 +13,32 @@ const RecentProejct = () => {
               <h2>Explore My Latest Project</h2>
             </div>
             <div className="col-12">
-              <Carroussel
-                cards={cards}
-                height="500px"
-                width="100%"
-                margin="0 auto"
-                showArrows={false}
-              />
+              <Carousel
+                arrows={false}
+                dotsNavigation={false}
+                dotsNavigationInside={false}
+                carouselStyle={"3d"}
+              >
+                <Image
+                  src="/assets/images/recent-project/item1.webp"
+                  alt=""
+                  width={600}
+                  height={450}
+                  
+                />
+                <Image
+                  src="/assets/images/recent-project/item2.webp"
+                  alt=""
+                  width={600}
+                  height={450}
+                />
+                <Image
+                  src="/assets/images/recent-project/item3.webp"
+                  alt=""
+                  width={600}
+                  height={450}
+                />
+              </Carousel>
             </div>
           </div>
         </div>

@@ -570,6 +570,9 @@ body {
   width: 100%;
   border-radius: 10px;
 }
+.Carousel-module_verticalContainer__payvU {
+  z-index: 2 !important;
+}
 /* about me */
 
 /* service */

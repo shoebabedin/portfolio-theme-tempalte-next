@@ -12,6 +12,7 @@ import Services from '../components/services/Services'
 import Testimnial from '../components/Testimonial/Testimnial'
 
 
+
 export default function Home() {
   const [show, setShow] = useState(false);
   const [portfolioData, setPortfolioData] = useState({});
