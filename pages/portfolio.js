@@ -63,7 +63,6 @@ const Portfolio = () => {
                 key={i}
                 className="filter"
                 onClick={() => handleFilter(item)}
-                defaultChecked={() => handleFilter("All Projects")}
               >
                 {item}
               </button>
