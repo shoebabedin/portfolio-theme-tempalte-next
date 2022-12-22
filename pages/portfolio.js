@@ -1,29 +1,27 @@
-import axios from 'axios';
+import axios from "axios";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import HeadAbout from "../components/about/HeadAbout";
 import PortfolioModal from "../components/Portfolio/PortfolioModal";
 import PortfolioTabs from "../components/Portfolio/PortfolioTabs";
 
-
 const Portfolio = () => {
   const [show, setShow] = useState(false);
   const [portfolioData, setPortfolioData] = useState([]);
-  // const [data, setData] = useState(portfolioData);
   const [filterData, setFilterData] = useState(portfolioData);
-
+  const [select, setSelect] = useState("All Projects");
 
   useEffect(() => {
-    axios('/assets/data/portfolio.json')
-    .then(response => {
-    console.log(response.data)
-    setPortfolioData(response.data);
-    setFilterData(response.data);
-    })
-    .catch(error => {
-    console.log('Error getting fake data: ' + error);
-    })
-    }, []);
+    axios("/assets/data/portfolio.json")
+      .then((response) => {
+        console.log(response.data);
+        setPortfolioData(response.data);
+        setFilterData(response.data);
+      })
+      .catch((error) => {
+        console.log("Error getting fake data: " + error);
+      });
+  }, []);
 
   useEffect(() => {}, [filterData]);
 
@@ -32,10 +30,14 @@ const Portfolio = () => {
   };
 
   const handleFilter = (title) => {
+    console.log(title)
+    setSelect(title)
     title === "All Projects"
       ? setFilterData(portfolioData)
       : setFilterData(portfolioData.filter((item) => item.category === title));
   };
+
+  console.log(select)
   return (
     <>
       <Head>
@@ -47,7 +49,6 @@ const Portfolio = () => {
 
       {/* Head title */}
       <HeadAbout title={"Portfolio Work"} breadcum={"Portfolio"} />
-      
 
       <div className="gallery-area pt-100 pb-70 portfolio">
         <div className="container">
@@ -61,7 +62,7 @@ const Portfolio = () => {
             ].map((item, i) => (
               <button
                 key={i}
-                className="filter"
+                className={`filter ${item === select ? 'active' : ''}`}
                 onClick={() => handleFilter(item)}
               >
                 {item}
