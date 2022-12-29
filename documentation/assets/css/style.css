@@ -144,7 +144,7 @@ navigation CSS
   width: 255px;
   height: 100vh;
   overflow-y: auto;
-  border-right: 1px solid #e3e1ec;
+  border-right: 1px solid var(--primary);
   position: fixed;
   top: 0;
   left: 0;
@@ -361,7 +361,7 @@ mobile nav CSS
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--white);
+  background-color: var(--black);
 }
 
 .mobile-nav button {
