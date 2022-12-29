@@ -14,7 +14,6 @@
     "axios": "^1.2.1",
     "bootstrap": "^5.2.3",
     "eslint": "8.30.0",
-    "eslint-config-next": "13.0.7",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.40",
     "next": "13.0.7",
@@ -35,5 +34,8 @@
     "typewriter-effect": "^2.19.0",
     "uuid": "^9.0.0",
     "uuidv4": "^6.2.13"
+  },
+  "devDependencies": {
+    "eslint-config-next": "^13.1.1"
   }
 }
